@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="content">
+            <h1 class="logo"><a class="cursor" href="https://www.linkedin.com/in/kevin-stockmanns/" target="_blank" rel="noopener noreferrer">Kevin</a></h1>
+        </div>
+    </header>
+    <main class="main content">
+        <section class="in-section">
+            <textarea placeholder="Ingrese el texto aquí" name="texto" id="texto" class="input-text"></textarea>
+            <div class="in-section-send">
+                <div class="section-send-details" id="details">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    <span>Solo letras minúsculas y sin acentos.</span>
+                </div>
+                <button class="encriptar-btn btn btn-main cursor" id="encriptar" disabled>Encriptar</button>
+                <button class="desencriptar-btn btn cursor"  id="desencriptar" disabled>Desencriptar</button>
+            </div>
+        </section>
+        <section class="out-section">
+            <div class="out-section-vacio" id="vacio-section">
+                <img class="out-section-vacio-img none" src="assets/wait.svg" alt="Ingresa un texto">
+                <h2 class="title">Ningún mensaje fue ingresado.</h2>
+                <p>Ingresa el texto que deseas encriptar o desencriptar.</p>
+            </div>
+            <div class="out-section-full hidden-up" id="full-section">
+                <p id="outText"></p>
+                <button class="btn btn-copy cursor" id="copy">Copiar</button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="js.js"></script>
+</body>
+</html>
