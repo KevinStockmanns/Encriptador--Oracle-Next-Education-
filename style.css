@@ -40,7 +40,7 @@ body{
     padding: 0;
     width: 100%;
     overflow-x: hidden;
-    background: var(--bgGradient);
+    background-color: var(--bgColor);
 }
 h1,h2,h3,p{
     margin: 0;
@@ -211,10 +211,6 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1.5rem 1rem 1rem;
-    background-color: var(--bgCardAlphaColor);
-    border-radius: 1.5rem;
-    backdrop-filter: var(--blur);
 }
 .input-text{
     width: 100%;
