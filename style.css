@@ -168,6 +168,8 @@ img{
 }
 .nav-btn.active .nav{
     transform: translate(0);
+    opacity: 1;
+    visibility: visible;
 }
 .nav-link{
     display: flex;
