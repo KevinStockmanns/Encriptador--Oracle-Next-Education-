@@ -108,7 +108,6 @@ d.addEventListener('click',e=>{
 
         $copyBtn.classList.add('btn-copied')
         $copyBtn.textContent = 'Copiado'
-        $input.focus()
         setTimeout(() => {
             $copyBtn.classList.remove('btn-copied')
             $copyBtn.textContent = 'Copiar'
