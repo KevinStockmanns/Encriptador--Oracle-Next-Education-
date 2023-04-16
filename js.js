@@ -30,7 +30,8 @@ const patron = {
 // ******* Verificación de input y cuestiones de estilo ********
 $input.addEventListener('keyup',e=>{
     text = e.target.value
-    e.target.value = text.toLowerCase()
+    text = text.toLowerCase()
+    e.target.value = text
     if(/^[a-z\s]+$/.test(text.trim())){
         $btnEnc.disabled = false;
         $btnDes.disabled = false;
