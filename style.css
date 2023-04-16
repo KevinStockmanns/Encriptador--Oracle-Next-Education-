@@ -1,8 +1,10 @@
 :root{
     --mainColor: #0a3871;
     --secondColor:#275082;
+    --bgGradient: linear-gradient(315deg, #275082, #2dfdc3);
     --bgColor: #f3f5fc;
     --bgCardColor: #fff;
+    --bgCardAlphaColor: #fff5;
     --textColor: #000;
     --textAlphaColor: #0009;
     --boxShadow: #0002;
@@ -10,6 +12,7 @@
     --time: .5s;
     --timeFast: .25s;
     --timeSlow: 1s;
+    --blur: blur(5px);
 }
 
 
@@ -36,6 +39,7 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background: var(--bgGradient);
 }
 h1,h2,h3,p{
     margin: 0;
@@ -116,6 +120,8 @@ img{
     width: 100%;
     height: var(--headerHeight);
     padding-left: 1rem;
+    background-color: var(--bgColor);
+    z-index: 1000;
 }
 .header-content{
     display: flex;
@@ -153,7 +159,7 @@ img{
 }
 .nav{
     position: absolute;
-    top: calc(100% + 1rem);
+    top: calc(100% + 1.5rem);
     right: 1rem;
     display: flex;
     flex-direction: column;
@@ -191,13 +197,16 @@ img{
     grid-template-rows: 2fr 1fr;
     gap: 2rem;
     width: 100%;
-    height: calc(100vh - var(--headerHeight));
+    min-height: calc(100vh - var(--headerHeight));
 }
 .in-section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 3rem;
+    padding: 1.5rem 1rem 1rem;
+    background-color: var(--bgCardAlphaColor);
+    border-radius: 1.5rem;
+    backdrop-filter: var(--blur);
 }
 .input-text{
     width: 100%;
@@ -227,7 +236,6 @@ img{
     flex-direction: column;
     gap: 0;
     padding: 1.5rem 1rem 1rem;
-    align-self: end;
     border-radius: 1.5rem;
     background-color: var(--bgCardColor);
     box-shadow: .2rem .2rem .5rem var(--boxShadow);
@@ -248,6 +256,9 @@ img{
 }
 .out-section-full p{
     word-break: break-all;
+}
+.out-section-full > button{
+    align-self: end;
 }
 .btn-copy{
     transition: var(--timeFast);
