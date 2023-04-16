@@ -158,25 +158,32 @@ img{
 .nav-btn.active > .line3{
     transform: translateY(-10px) rotate(45deg);
 }
-.nav{
+nav {
     position: absolute;
-    top: calc(100% + 1.5rem);
-    right: 1rem;
+    top: 3em;
+    right: 0;
+    width: calc(300px + 1em);
+    visibility: hidden;
+    margin-right: -1em;
+    opacity: 0;
+    transition: var(--time);
+}
+.nav-btn.active nav {
+    visibility: visible;
+    opacity: 1;
+}
+.nav{
     display: flex;
+    margin-left: 350px;
     flex-direction: column;
     width: 300px;
     border-radius: 1rem;
-    box-shadow: 0 0 .5rem var(--boxShadow);
+    box-shadow: 0 0 0.5rem var(--boxShadow);
     background-color: var(--bgCardColor);
     transition: var(--time);
-    transform: translateX(200%);
-    opacity: 0;
-    visibility: hidden;
 }
-.nav-btn.active .nav{
-    transform: translate(0);
-    opacity: 1;
-    visibility: visible;
+.nav-btn.active .nav {
+    margin-left: 0px;
 }
 .nav-link{
     display: flex;
@@ -284,6 +291,11 @@ img{
 }
 
 
+@media screen and (max-width: 1000px) {
+    nav {
+        overflow: hidden;
+    }
+}
 
 @media screen and (min-width: 420px) {
     .in-section-send{
