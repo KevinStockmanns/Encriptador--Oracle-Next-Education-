@@ -17,7 +17,7 @@ const $input = d.getElementById('texto'),
 
 
 // ******* Variables necesarias ********
-let text;
+let text = '';
 const patron = {
     a: 'ai',
     e: 'enter',
@@ -29,7 +29,8 @@ const patron = {
 
 // ******* Verificación de input y cuestiones de estilo ********
 $input.addEventListener('keyup',e=>{
-    text = e.target.value.trim()
+    text = e.target.value
+    e.target.value = text.toLowerCase()
     if(/^[a-z\s]+$/.test(text.trim())){
         $btnEnc.disabled = false;
         $btnDes.disabled = false;
