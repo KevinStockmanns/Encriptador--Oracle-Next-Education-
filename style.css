@@ -163,6 +163,8 @@ img{
     background-color: var(--bgCardColor);
     transition: var(--time);
     transform: translateX(200%);
+    opacity: 0;
+    visibility: hidden;
 }
 .nav-btn.active .nav{
     transform: translate(0);
