@@ -112,4 +112,14 @@ d.addEventListener('click',e=>{
             $copyBtn.textContent = 'Copiar'
         }, 1000);
     }
+
+
+
+    // Esto sirve para el boton del inicio
+    if(e.target.matches('.nav-btn') || e.target.matches('.nav-btn > span')){
+        d.getElementById('nav-btn').classList.toggle('active')
+    }else{
+        d.getElementById('nav-btn').classList.remove('active')
+        
+    }
 })
