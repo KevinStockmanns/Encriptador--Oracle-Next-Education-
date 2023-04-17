@@ -125,6 +125,9 @@ d.addEventListener('click',e=>{
         text = ''
         $input.value = text
         apareceText(false)
+        $btnDes.disabled = true
+        $btnEnc.disabled = true
+        $resetBtn.disabled = true
     }
 
 
