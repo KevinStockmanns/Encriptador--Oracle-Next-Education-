@@ -123,4 +123,19 @@ d.addEventListener('click',e=>{
         d.getElementById('nav-btn').classList.remove('active')
         
     }
+
+
+
+    if(e.target.matches('.btn')){
+        let x = e.x - e.target.offsetLeft
+        let y = e.y - e.target.offsetTop
+        let span = d.createElement('span')
+        span.style.top = `${y}px`
+        span.style.left = `${x}px`
+        e.target.appendChild(span)
+
+        setTimeout(() => {
+            span.remove()
+        }, 1000);
+    }
 })

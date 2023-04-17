@@ -1,10 +1,11 @@
 :root{
     --mainColor: #0a3871;
+    --mainAlphaColor: #0a387155;
     --secondColor:#275082;
     --bgGradient: linear-gradient(315deg, #275082, #2dfdc3);
     --bgColor: #f3f5fc;
     --bgCardColor: #fff;
-    --bgCardAlphaColor: #fff5;
+    --bgCardAlphaColor: #fff9;
     --textColor: #000;
     --textAlphaColor: #0009;
     --boxShadow: #0002;
@@ -54,22 +55,39 @@ img{
 
 /* ****** Property Class****** */
 .btn{
+    position: relative;
     border-radius: 2rem;
     padding: .7rem 0;
     font-weight: bold;
     font-family: inherit;
     font-size: 1rem;
-    background-color: transparent;
-    border: 1px solid var(--secondColor);
-    color: var(--secondColor);
+    background-color: var(--mainAlphaColor);
+    border: none;
+    color: var(--bgCardColor);
     transition: var(--time) ease;
-}
-.btn:hover{
-    opacity: .9;
+    overflow: hidden;
 }
 .btn:disabled{
     opacity: .3;
     cursor: no-drop;
+}
+.btn > span{
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--bgCardAlphaColor);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: btn 1s ease;
+}
+@keyframes btn {
+    0%{
+        transform: translate(-50%, -50%) scale(0);
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(30);
+        opacity: 0;
+    }
 }
 .btn-main{
     background-color: var(--mainColor);
