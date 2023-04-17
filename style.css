@@ -1,7 +1,7 @@
 :root{
     --mainColor: #0a3871;
-    --mainAlphaColor: #0a387155;
     --secondColor:#275082;
+    --thirdColor: #7da8dd;
     --bgGradient: linear-gradient(315deg, #275082, #2dfdc3);
     --bgColor: #f3f5fc;
     --bgCardColor: #fff;
@@ -61,7 +61,7 @@ img{
     font-weight: bold;
     font-family: inherit;
     font-size: 1rem;
-    background-color: var(--mainAlphaColor);
+    background-color: var(--thirdColor);
     border: none;
     color: var(--bgCardColor);
     transition: var(--time) ease;
