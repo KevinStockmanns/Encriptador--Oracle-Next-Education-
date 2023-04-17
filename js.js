@@ -43,6 +43,7 @@ $input.addEventListener('keyup',e=>{
     }
     if(!text){
         d.getElementById('details').classList.remove('error')
+        apareceText(false)
     }
 
     // Esto hace que al dar enter se encripte
@@ -78,10 +79,14 @@ function desencriptar(text){
 }
 
 // ******* Cuando se apretan los botones de encri o desenc. cambia el frontend ********
-function apareceText(){
-    $vacioSec.classList.add('none')
-    // $fullSec.classList.remove('none')
-    $fullSec.classList.remove('hidden-up')
+function apareceText(bool){
+    if(bool){
+        $vacioSec.classList.add('none')
+        $fullSec.classList.remove('hidden-up')
+    }else{
+        $vacioSec.classList.remove('none')
+        $fullSec.classList.add('hidden-up')
+    }
     
 }
 
@@ -91,12 +96,12 @@ function apareceText(){
 d.addEventListener('click',e=>{
     if(e.target == $btnEnc){
         if(text){
-            apareceText()
+            apareceText(true)
             $output.textContent = encriptar(text)
         }
     }
     if(e.target == $btnDes){
-        apareceText()
+        apareceText(true)
         $output.textContent = desencriptar(text)
     }
     if(e.target == $copyBtn){

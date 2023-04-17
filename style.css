@@ -274,6 +274,12 @@ nav {
     display: grid;
     gap: 2rem;
     text-align: center;
+    visibility: visible;
+    opacity: 1;
+    transition: var(--timeSlow);
+}
+.out-section-vacio-img{
+    display: none;
 }
 .out-section-full{
     display: grid;
@@ -281,6 +287,9 @@ nav {
     height: 100%;
     width: 100%;
     transition: var(--timeSlow);
+}
+.out-section-full.hidden-up{
+    transition: 0s;
 }
 .out-section-full p{
     max-height: 200px;
@@ -351,6 +360,7 @@ nav {
         border: none;
     }
     .out-section-vacio-img{
+        display: block;
         max-width: 300px;
         justify-self: center;
     }
@@ -367,4 +377,6 @@ nav {
 
 .none{
     display: none;
+    visibility: hidden;
+    opacity: 0;
 }
