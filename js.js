@@ -124,6 +124,7 @@ d.addEventListener('click',e=>{
     if(e.target == $resetBtn){
         text = ''
         $input.value = text
+        apareceText(false)
     }
 
 
