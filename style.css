@@ -238,6 +238,7 @@ nav {
     max-height: 200px;
     font-family: sans-serif;
     font-size: 1.5rem;
+    text-transform: lowercase;
     resize: none;
     border: none;
     outline: none;
