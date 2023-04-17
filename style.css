@@ -245,7 +245,7 @@ nav {
     background-color: transparent;
     border-radius: 1.5rem;
     border: 2px solid var(--thirdAlphaColor);
-    color: var(--secondColor);
+    color: var(--textColor);
 }
 .in-section-send{
     display: flex;
@@ -258,6 +258,15 @@ nav {
     gap: .5rem;
     padding-left: .5rem;
     transition: var(--time);
+}
+.in-section-send-btns{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.in-section-send-btns > button{
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .out-section{
     display: flex;
@@ -329,15 +338,12 @@ nav {
 }
 
 @media screen and (min-width: 420px) {
-    .in-section-send{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .section-send-details{
-        grid-column: 1 / -1;
+    .in-section-send-btns{
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
-
 
 
 @media screen and (min-width: 800px) {

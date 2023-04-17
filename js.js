@@ -11,6 +11,7 @@ const $input = d.getElementById('texto'),
     $btnEnc = d.getElementById('encriptar'),
     $btnDes = d.getElementById('desencriptar'),
     $copyBtn = d.getElementById('copy'),
+    $resetBtn = d.getElementById('reset'),
     $output = d.getElementById('outText'),
     $fullSec = d.getElementById('full-section'),
     $vacioSec = d.getElementById('vacio-section')
@@ -35,10 +36,12 @@ $input.addEventListener('keyup',e=>{
     if(/^[a-z\s]+$/.test(text.trim())){
         $btnEnc.disabled = false;
         $btnDes.disabled = false;
+        $resetBtn.disabled = false
         d.getElementById('details').classList.remove('error')
     }else{
         $btnEnc.disabled = true;
         $btnDes.disabled = true;
+        $resetBtn.disabled = true
         d.getElementById('details').classList.add('error')
     }
     if(!text){
@@ -117,6 +120,10 @@ d.addEventListener('click',e=>{
             $copyBtn.classList.remove('btn-copied')
             $copyBtn.textContent = 'Copiar'
         }, 1500);
+    }
+    if(e.target == $resetBtn){
+        text = ''
+        $input.value = text
     }
 
 
