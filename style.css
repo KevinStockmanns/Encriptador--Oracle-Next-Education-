@@ -79,7 +79,7 @@ img{
     background-color: var(--bgCardAlphaColor);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: btn .9s ease;
+    animation: btn 1s ease;
 }
 @keyframes btn {
     0%{
