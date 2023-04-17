@@ -149,6 +149,6 @@ d.addEventListener('click',e=>{
 
         setTimeout(() => {
             span.remove()
-        }, 1000);
+        }, 500);
     }
 })
