@@ -2,6 +2,7 @@
     --mainColor: #0a3871;
     --secondColor:#275082;
     --thirdColor: #7da8dd;
+    --thirdAlphaColor: #7da8dd99;
     --bgGradient: linear-gradient(315deg, #275082, #2dfdc3);
     --bgColor: #f3f5fc;
     --bgCardColor: #fff;
@@ -78,7 +79,7 @@ img{
     background-color: var(--bgCardAlphaColor);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    animation: btn 1s ease;
+    animation: btn .9s ease;
 }
 @keyframes btn {
     0%{
@@ -220,25 +221,29 @@ nav {
 }
 .main{
     display: grid;
-    grid-template-rows: 2fr 1fr;
-    gap: 2rem;
+    grid-template-rows: 1fr 1fr;
+    gap: 3rem;
     width: 100%;
     min-height: calc(100vh - var(--headerHeight));
 }
 .in-section{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 2rem;
 }
 .input-text{
+    padding: .5rem;
     width: 100%;
     height: 100%;
+    max-height: 200px;
     font-family: sans-serif;
     font-size: 1.5rem;
     resize: none;
     border: none;
     outline: none;
     background-color: transparent;
+    border-radius: 1.5rem;
+    border: 2px solid var(--thirdAlphaColor);
     color: var(--secondColor);
 }
 .in-section-send{
@@ -277,7 +282,9 @@ nav {
     transition: var(--timeSlow);
 }
 .out-section-full p{
+    max-height: 200px;
     word-break: break-all;
+    overflow: auto;
 }
 .out-section-full > button{
     align-self: end;
@@ -330,6 +337,7 @@ nav {
     }
     .in-section{
         padding-bottom: 1rem;
+        justify-content: space-between;
     }
     .out-section{
         display: flex;
@@ -337,12 +345,17 @@ nav {
         align-items: center;
         align-self: stretch;
     }
+    .input-text{
+        max-height: none;
+        border: none;
+    }
     .out-section-vacio-img{
         max-width: 300px;
         justify-self: center;
     }
     .out-section-full p{
         align-self: start;
+        max-height: 300px;
     }
     .out-section-full button{
         align-self: end;
