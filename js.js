@@ -111,7 +111,7 @@ d.addEventListener('click',e=>{
         setTimeout(() => {
             $copyBtn.classList.remove('btn-copied')
             $copyBtn.textContent = 'Copiar'
-        }, 1000);
+        }, 1500);
     }
 
 
