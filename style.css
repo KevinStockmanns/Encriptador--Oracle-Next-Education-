@@ -337,11 +337,10 @@ nav {
     }
 }
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 550px) {
     .in-section-send-btns{
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
 
