@@ -31,9 +31,12 @@ const patron = {
 // ******* Verificación de input y cuestiones de estilo ********
 $input.addEventListener('keyup',e=>{
     text = e.target.value
-    text = text.toLowerCase()
-    e.target.value = text
-    if(/^[a-z\s]+$/.test(text.trim())){
+    text = text.toLowerCase() // cambia las mayus a minus
+    text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') //Remplaza los acentos
+    e.target.value = text //ingreso esos cambios al textarea
+
+
+    if(/^[a-z\s]+$/g.test(text.trim())){
         $btnEnc.disabled = false;
         $btnDes.disabled = false;
         $resetBtn.disabled = false
