@@ -109,6 +109,7 @@ img{
     margin: 0 auto;
 }
 .error{
+    font-weight: bold;
     transform: scale(1.05);
     color: red;
 }
