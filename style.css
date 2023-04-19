@@ -358,6 +358,12 @@ nav {
     gap: .5rem;
     font-weight: bold;
 }
+.history-content ion-icon[name="chevron-up-outline"]{
+    transition: var(--timeFast) var(--time);
+}
+.history-content.active ion-icon[name="chevron-up-outline"]{
+    transform: rotate(180deg);
+}
 .history-body{
     display: flex;
     flex-direction: column;
