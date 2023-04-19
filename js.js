@@ -34,7 +34,7 @@ const patron = {
 $input.addEventListener('keyup',e=>{
     text = e.target.value
     text = text.toLowerCase() // cambia las mayus a minus
-    text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') //Remplaza los acentos
+    text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') //separa las letras con simbolos como las tildes (quedan 2 caracteres: á = a ´) y elimina la tilde
     e.target.value = text //ingreso esos cambios al textarea
 
 
@@ -79,7 +79,7 @@ function encriptar(text){
         encriptWords.push(textFinal.trim())
         if(encriptWords.length > 0){
             d.getElementById('historyNone').classList.add('none')
-            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div>
+            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div class='history-item'>
                 <p>${encriptWords[encriptWords.length - 1]}</p>
             </div>`)
         }

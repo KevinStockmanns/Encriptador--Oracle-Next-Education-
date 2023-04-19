@@ -348,6 +348,7 @@ nav {
     padding: 0 1rem;
     height: var(--Height);
     background-color: var(--thirdColor);
+    color: var(--bgCardColor);
 }
 .history-header ion-icon{
     font-size: 1.5rem;
@@ -381,6 +382,9 @@ nav {
 }
 .history-body h3{
     text-align: center;
+}
+.history-item p{
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1000px) {
