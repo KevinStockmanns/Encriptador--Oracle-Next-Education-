@@ -14,11 +14,13 @@ const $input = d.getElementById('texto'),
     $resetBtn = d.getElementById('reset'),
     $output = d.getElementById('outText'),
     $fullSec = d.getElementById('full-section'),
-    $vacioSec = d.getElementById('vacio-section')
+    $vacioSec = d.getElementById('vacio-section'),
+    $history = d.getElementById('history')
 
 
 // ******* Variables necesarias ********
-let text = '';
+let text = '',
+    encriptWords = [];
 const patron = {
     a: 'ai',
     e: 'enter',
@@ -70,6 +72,20 @@ function encriptar(text){
             textFinal += char
         }
     }
+
+
+    // se guarda en el historial si el tex es valido y se muestra en pantalla
+    if(text.includes('a') || text.includes('e') || text.includes('i') || text.includes('o') || text.includes('u')){
+        encriptWords.push(textFinal.trim())
+        if(encriptWords.length > 0){
+            d.getElementById('historyNone').classList.add('none')
+            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div>
+                <p>${encriptWords[encriptWords.length - 1]}</p>
+            </div>`)
+        }
+        d.getElementById('encriptWords').textContent = encriptWords.length
+    }
+
     return textFinal
 }
 
@@ -133,6 +149,13 @@ d.addEventListener('click',e=>{
         $resetBtn.disabled = true
     }
 
+
+
+    if(e.target.matches('.history-header') || e.target.matches('.history-header *')){
+        $history.classList.toggle('active')
+    }else if(!e.target.matches('.history *')){
+        $history.classList.remove('active')
+    }
 
 
     // Esto sirve para el boton del inicio
