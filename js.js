@@ -3,6 +3,17 @@ const d = document
 // ******* Al cargar la pagina se formatea lo que hay el el input ********
 d.addEventListener('DOMContentLoaded',e=>{
     $input.value = '';
+    encriptWords = JSON.parse(window.localStorage.getItem('history')) || []
+    if(encriptWords.length > 0){
+        d.getElementById('historyNone').classList.add('none')
+        d.getElementById('encriptWords').textContent = encriptWords.length
+        encriptWords.map(el=>{
+            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div title='${el}' class='history-item'>
+                <p>${el}</p>
+            </div>`)
+        })
+    }
+    
 })
 
 
@@ -74,16 +85,21 @@ function encriptar(text){
     }
 
 
-    // se guarda en el historial si el tex es valido y se muestra en pantalla
+    // se guarda en el historial si el tex es valido y se muestra en pantalla hasta 10
     if(text.includes('a') || text.includes('e') || text.includes('i') || text.includes('o') || text.includes('u')){
         encriptWords.push(textFinal.trim())
         if(encriptWords.length > 0){
+            if(encriptWords.length > 10){// si es mas de 10, se borra el primero
+                d.querySelector('.history-item').remove()
+                droped = encriptWords.shift()
+            }
             d.getElementById('historyNone').classList.add('none')
-            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div class='history-item'>
+            d.getElementById('historyBody').insertAdjacentHTML('beforeend', `<div title=${encriptWords[encriptWords.length - 1]} class='history-item'>
                 <p>${encriptWords[encriptWords.length - 1]}</p>
             </div>`)
         }
         d.getElementById('encriptWords').textContent = encriptWords.length
+        window.localStorage.setItem('history', JSON.stringify(encriptWords))
     }
 
     return textFinal
