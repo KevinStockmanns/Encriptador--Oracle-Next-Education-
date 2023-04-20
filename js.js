@@ -46,11 +46,11 @@ const patron = {
 $input.addEventListener('keyup',e=>{
     text = e.target.value
     text = text.toLowerCase() // cambia las mayus a minus
-    text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') //separa las letras con simbolos como las tildes (quedan 2 caracteres: á = a ´) y elimina la tilde
+    // text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '') //separa las letras con simbolos como las tildes (quedan 2 caracteres: á = a ´) y elimina la tilde, pero lo comente por que cometia algunos bugs con la letra ñ
     e.target.value = text //ingreso esos cambios al textarea
 
 
-    if(/^[a-z\s]+$/g.test(text.trim())){
+    if(/^[a-zñ\s]+$/g.test(text.trim())){
         $btnEnc.disabled = false;
         $btnDes.disabled = false;
         $resetBtn.disabled = false
@@ -108,11 +108,10 @@ function encriptar(text){
 
 // ******* Proceso de desencriptación ********
 function desencriptar(text){
-    Object.values(patron).forEach(el=>{
-        while(text.includes(el)){
-            let i = Object.values(patron).indexOf(el)
-            text = text.replace(el, Object.keys(patron)[i])
-        }
+    const regex = new RegExp(Object.values(patron).join('|'), 'gi')
+    text = text.replaceAll(regex, match=>{
+        let i = Object.values(patron).indexOf(match)
+        return Object.keys(patron)[i]
     })
     return text;
 }
