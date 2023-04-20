@@ -1,8 +1,9 @@
 const d = document
 
-// ******* Al cargar la pagina se formatea lo que hay el el input ********
+// ******* Al cargar la pagina se formatea lo que hay el el input, y se obtiene el historial de palabras encriptadas ********
 d.addEventListener('DOMContentLoaded',e=>{
     $input.value = '';
+
     encriptWords = JSON.parse(window.localStorage.getItem('history')) || []
     if(encriptWords.length > 0){
         d.getElementById('historyNone').classList.add('none')
