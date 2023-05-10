@@ -1,5 +1,16 @@
 const d = document
 
+function habilitarBtn(){
+    $btnEnc.disabled = false;
+    $btnDes.disabled = false;
+    $resetBtn.disabled = false
+}
+function desahabilitarBtn(){
+    $btnEnc.disabled = true;
+    $btnDes.disabled = true;
+    $resetBtn.disabled = true
+}
+
 // ******* Al cargar la pagina se formatea lo que hay el el input, y se obtiene el historial de palabras encriptadas ********
 d.addEventListener('DOMContentLoaded',e=>{
     $input.value = '';
@@ -51,14 +62,10 @@ $input.addEventListener('keyup',e=>{
 
 
     if(/^[a-zñ\s]+$/g.test(text.trim())){
-        $btnEnc.disabled = false;
-        $btnDes.disabled = false;
-        $resetBtn.disabled = false
+        habilitarBtn()
         d.getElementById('details').classList.remove('error')
     }else{
-        $btnEnc.disabled = true;
-        $btnDes.disabled = true;
-        $resetBtn.disabled = true
+        desahabilitarBtn()
         d.getElementById('details').classList.add('error')
     }
     if(!text){
@@ -71,6 +78,15 @@ $input.addEventListener('keyup',e=>{
         $btnEnc.click()
     }
 })
+$input.addEventListener('mousemove',e=>{
+    text = e.target.value
+    if(text){
+        habilitarBtn()
+    }else{
+        desahabilitarBtn()
+    }
+})
+
 
 
 // ******* Proceso de encriptación ********
@@ -160,9 +176,7 @@ d.addEventListener('click',e=>{
         text = ''
         $input.value = text
         apareceText(false)
-        $btnDes.disabled = true
-        $btnEnc.disabled = true
-        $resetBtn.disabled = true
+        desahabilitarBtn()
     }
 
 
